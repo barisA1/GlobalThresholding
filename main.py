@@ -41,6 +41,17 @@ while True:
 
     T0 = T1
 
+# Print optimum threshold value
+print(f"Optimum Threshold Value: {T0}")
+
+# Calculate number of pixels above and below the threshold
+G1_count = len(pixels[pixels > T0])
+G2_count = len(pixels[pixels <= T0])
+
+# Print results
+print(f"Number of pixels above threshold: {G1_count}")
+print(f"Number of pixels below or equal to threshold: {G2_count}")
+
 # Plot the histogram and threshold
 plt.hist(pixels, bins=range(100, 151), edgecolor='black')
 plt.axvline(T0, color='red', linestyle='dashed', linewidth=1)
@@ -48,3 +59,5 @@ plt.title('Pixel Intensity Histogram with Threshold')
 plt.xlabel('Intensity')
 plt.ylabel('Frequency')
 plt.show()
+
+
